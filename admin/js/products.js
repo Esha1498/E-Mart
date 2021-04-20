@@ -8,7 +8,7 @@ $(document).ready(function(){
 			method : 'POST',
 			data : {GET_PRODUCT:1},
 			success : function(response){
-				//console.log(response);
+				console.log(response);
 				var resp = $.parseJSON(response);
 				if (resp.status == 202) {
 
@@ -78,12 +78,13 @@ $(document).ready(function(){
 				console.log(response);
 				var resp = $.parseJSON(response);
 				if (resp.status == 202) {
-					$("#add-product-form").trigger("reset");
-					$("#add_product_modal").modal('hide');
+					//$("#add-product-form").trigger("reset");
 					getProducts();
+					$("#add_product_modal").modal('hide');
+					
 				}else if(resp.status == 303){
 					alert(resp.message);
-				}
+				} 
 			}
 
 		});
